@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>GreenChain Carbon</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eef7f1;
+    color:#163a28;
+}
+
+header{
+    background:linear-gradient(135deg,#064e2c,#11a85a);
+    color:white;
+    padding:25px 18px;
+    text-align:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+header h1{
+    margin:0;
+    font-size:27px;
+}
+
+header p{
+    margin:7px 0 0;
+    opacity:.9;
+}
+
+nav{
+    display:flex;
+    overflow-x:auto;
+    gap:8px;
+    padding:10px;
+    background:white;
+    position:sticky;
+    top:91px;
+    z-index:90;
+    box-shadow:0 2px 10px #0001;
+}
+
+nav button{
+    white-space:nowrap;
+    margin:0;
+    padding:9px 13px;
+    background:#e7f5ec;
+    color:#086637;
+}
+
+.container{
+    width:100%;
+    max-width:950px;
+    margin:auto;
+    padding:15px;
+}
+
+.card{
+    background:white;
+    border-radius:20px;
+    padding:20px;
+    margin:15px 0;
+    box-shadow:0 5px 20px rgba(0,0,0,.07);
+}
+
+.card h2{
+    margin-top:0;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+}
+
+.stat{
+    background:#effaf3;
+    border-radius:16px;
+    padding:16px;
+    text-align:center;
+}
+
+.stat-title{
+    font-size:14px;
+}
+
+.stat-value{
+    font-size:27px;
+    font-weight:bold;
+    color:#08783f;
+    margin-top:6px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-top:13px;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    border-radius:11px;
+    border:1px solid #ccd9d0;
+    margin-top:6px;
+    font-size:16px;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#0a9b50;
+}
+
+button{
+    border:0;
+    border-radius:12px;
+    padding:13px 17px;
+    background:#08783f;
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+button.secondary{
+    background:#59635d;
+}
+
+button.warning{
+    background:#b77900;
+}
+
+button.danger{
+    background:#b3261e;
+}
+
+button.full{
+    width:100%;
+}
+
+.photo-area{
+    border:2px dashed #16a05a;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+}
+
+#preview{
+    width:100%;
+    max-height:320px;
+    object-fit:contain;
+    border-radius:15px;
+    margin-top:15px;
+    display:none;
+}
+
+.result-box{
+    background:#effaf3;
+    padding:15px;
+    border-radius:15px;
+    margin-top:15px;
+}
+
+.big-result{
+    font-size:30px;
+    font-weight:bold;
+    color:#08783f;
+}
+
+.badge{
+    display:inline-block;
+    padding:7px 11px;
+    border-radius:30px;
+    background:#d9f6e4;
+    color:#08783f;
+    font-size:13px;
+    font-weight:bold;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,
+td{
+    padding:10px 7px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+}
+
+.small{
+    font-size:13px;
+    color:#68766e;
+}
+
+.warning-box{
+    background:#fff7dc;
+    color:#6b5100;
+    border-radius:14px;
+    padding:14px;
+    margin-top:15px;
+}
+
+.certificate{
+    border:3px solid #0b8145;
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    background:#fcfffd;
+}
+
+.certificate h2{
+    color:#08783f;
+}
+
+footer{
+    text-align:center;
+    padding:35px 15px;
+    color:#65746b;
+    font-size:13px;
+}
+
+.hidden{
+    display:none;
+}
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:23px;
+    }
+
+    .card{
+        padding:16px;
+    }
+
+    .stat-value{
+        font-size:23px;
+    }
+
+}
+
+@media print{
+
+    header,
+    nav,
+    button,
+    footer{
+        display:none!important;
+    }
+
+    body{
+        background:white;
+    }
+
+    .card{
+        box-shadow:none;
+        border:1px solid #ddd;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<header>
+
+<h1>🌍 GreenChain Carbon</h1>
+
+<p>
+Carbon Footprint • Carbon Reduction • Credit Estimate
+</p>
+
+</header>
+
+
+<nav>
+
+<button onclick="go('dashboard')">
+📊 Dashboard
+</button>
+
+<button onclick="go('scanner')">
+📷 Scanner
+</button>
+
+<button onclick="go('calculator')">
+🧮 Calculator
+</button>
+
+<button onclick="go('wallet')">
+👛 Wallet
+</button>
+
+<button onclick="go('certificate')">
+📜 Certificate
+</button>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- DASHBOARD -->
+
+<section id="dashboard">
+
+<div class="card">
+
+<h2>📊 Carbon Dashboard</h2>
+
+<div class="grid">
+
+<div class="stat">
+
+<div class="stat-title">
+Total Emission
+</div>
+
+<div
+id="dashEmission"
+class="stat-value">
+0
+</div>
+
+<small>
+kg CO₂e
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+Total Reduction
+</div>
+
+<div
+id="dashReduction"
+class="stat-value">
+0
+</div>
+
+<small>
+kg CO₂e
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+Net Footprint
+</div>
+
+<div
+id="dashNet"
+class="stat-value">
+0
+</div>
+
+<small>
+kg CO₂e
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+Estimated Credits
+</div>
+
+<div
+id="dashCredits"
+class="stat-value">
+0
+</div>
+
+<small>
+tCO₂e
+</small>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- PHOTO SCANNER -->
+
+<section id="scanner">
+
+<div class="card">
+
+<h2>📷 Photo Carbon Scanner</h2>
+
+<div class="photo-area">
+
+<p>
+Take a photo or choose an image.
+</p>
+
+<input
+id="photo"
+type="file"
+accept="image/*"
+capture="environment"
+>
+
+<img
+id="preview"
+alt="Photo preview"
+>
+
+<label>
+Project Type
+</label>
+
+<select id="photoType">
+
+<option value="tree">
+🌳 Trees / Plantation
+</option>
+
+<option value="solar">
+☀️ Solar Panel
+</option>
+
+<option value="waste">
+♻️ Waste / Recycling
+</option>
+
+<option value="vehicle">
+🚗 Vehicle
+</option>
+
+</select>
+
+
+<label>
+Quantity / Measurement
+</label>
+
+<input
+id="photoQuantity"
+type="number"
+value="1"
+min="0"
+step="0.01"
+>
+
+
+<label>
+Unit
+</label>
+
+<select id="photoUnit">
+
+<option value="count">
+Count
+</option>
+
+<option value="kg">
+kg
+</option>
+
+<option value="kwh">
+kWh
+</option>
+
+<option value="km">
+km
+</option>
+
+</select>
+
+
+<button
+class="full"
+onclick="analyzePhoto()">
+
+🔍 Calculate Photo Estimate
+
+</button>
+
+
+<div
+id="photoResult"
+class="result-box hidden">
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CALCULATOR -->
+
+<section id="calculator">
+
+
+<!-- ELECTRICITY -->
+
+<div class="card">
+
+<h2>⚡ Electricity</h2>
+
+<label>
+Monthly electricity usage (kWh)
+</label>
+
+<input
+id="electricity"
+type="number"
+value="0"
+min="0"
+>
+
+<button onclick="calculateAll()">
+Calculate
+</button>
+
+<div
+id="electricityResult"
+class="result-box">
+0 kg CO₂e
+</div>
+
+</div>
+
+
+
+<!-- VEHICLE -->
+
+<div class="card">
+
+<h2>🚗 Transport</h2>
+
+<label>
+Vehicle
+</label>
+
+<select id="vehicleType">
+
+<option value="0.192">
+Car
+</option>
+
+<option value="0.103">
+Motorcycle
+</option>
+
+<option value="0.089">
+Bus
+</option>
+
+<option value="0.041">
+Train
+</option>
+
+</select>
+
+
+<label>
+Distance per month (km)
+</label>
+
+<input
+id="distance"
+type="number"
+value="0"
+min="0"
+>
+
+<button onclick="calculateAll()">
+Calculate
+</button>
+
+<div
+id="vehicleResult"
+class="result-box">
+0 kg CO₂e
+</div>
+
+</div>
+
+
+
+<!-- FUEL -->
+
+<div class="card">
+
+<h2>⛽ Fuel</h2>
+
+<label>
+Fuel type
+</label>
+
+<select id="fuelType">
+
+<option value="2.31">
+Petrol
+</option>
+
+<option value="2.68">
+Diesel
+</option>
+
+<option value="1.51">
+LPG
+</option>
+
+</select>
+
+
+<label>
+Litres per month
+</label>
+
+<input
+id="fuel"
+type="number"
+value="0"
+min="0"
+>
+
+<button onclick="calculateAll()">
+Calculate
+</button>
+
+<div
+id="fuelResult"
+class="result-box">
+0 kg CO₂e
+</div>
+
+</div>
+
+
+
+<!-- SOLAR -->
+
+<div class="card">
+
+<h2>☀️ Solar Energy</h2>
+
+<label>
+Solar generation per month (kWh)
+</label>
+
+<input
+id="solar"
+type="number"
+value="0"
+min="0"
+>
+
+<button onclick="calculateAll()">
+Calculate
+</button>
+
+<div
+id="solarResult"
+class="result-box">
+0 kg CO₂e
+</div>
+
+</div>
+
+
+
+<!-- TREES -->
+
+<div class="card">
+
+<h2>🌳 Trees</h2>
+
+<label>
+Number of trees
+</label>
+
+<input
+id="trees"
+type="number"
+value="0"
+min="0"
+>
+
+<button onclick="calculateAll()">
+Calculate
+</button>
+
+<div
+id="treeResult"
+class="result-box">
+0 kg CO₂e
+</div>
+
+</div>
+
+
+
+<!-- WASTE -->
+
+<div class="card">
+
+<h2>♻️ Waste</h2>
+
+<label>
+Waste diverted/recycled (kg)
+</label>
+
+<input
+id="waste"
+type="number"
+value="0"
+min="0"
+>
+
+<button onclick="calculateAll()">
+Calculate
+</button>
+
+<div
+id="wasteResult"
+class="result-box">
+0 kg CO₂e
+</div>
+
+</div>
+
+
+
+<!-- ALL CALCULATION -->
+
+<div class="card">
+
+<h2>🌍 Total Calculation</h2>
+
+<button
+class="full"
+onclick="calculateAll()">
+
+🚀 Calculate Carbon Footprint
+
+</button>
+
+<div
+id="mainResult"
+class="result-box">
+Enter your data and calculate.
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- WALLET -->
+
+<section id="wallet">
+
+<div class="card">
+
+<h2>👛 Wallet</h2>
+
+<label>
+Blockchain Wallet Address
+</label>
+
+<input
+id="walletAddress"
+placeholder="0x..."
+>
+
+<button
+onclick="saveWallet()"
+class="full">
+
+💾 Save Wallet
+
+</button>
+
+<div
+id="walletStatus"
+class="result-box">
+Wallet not connected.
+</div>
+
+
+<div class="warning-box">
+
+<strong>Important:</strong>
+
+This version only stores the wallet
+address locally.
+
+Real blockchain transactions require
+a Web3 wallet and smart contract.
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- CERTIFICATE -->
+
+<section id="certificate">
+
+<div class="card">
+
+<h2>📜 Carbon Certificate</h2>
+
+<div
+id="certificateArea"
+class="certificate">
+
+<h2>
+🌱 CARBON REDUCTION CERTIFICATE
+</h2>
+
+<p>
+GreenChain Carbon
+</p>
+
+<hr>
+
+<p>
+Estimated CO₂ Reduction
+</p>
+
+<div
+id="certificateReduction"
+class="big-result">
+
+0 kg CO₂e
+
+</div>
+
+<p>
+Estimated Carbon Credit
+</p>
+
+<div
+id="certificateCredit"
+class="big-result">
+
+0 tCO₂e
+
+</div>
+
+<p>
+Wallet
+</p>
+
+<p
+id="certificateWallet">
+
+Not connected
+
+</p>
+
+<p>
+Certificate ID
+</p>
+
+<p
+id="certificateId">
+
+Not generated
+
+</p>
+
+<span class="badge">
+ESTIMATE — NOT VERIFIED
+</span>
+
+</div>
+
+
+<button
+onclick="generateCertificate()"
+class="full">
+
+📜 Generate Certificate
+
+</button>
+
+
+<button
+onclick="window.print()"
+class="full secondary">
+
+🖨️ Print / Save PDF
+
+</button>
+
+</div>
+
+</section>
+
+
+
+<!-- HISTORY -->
+
+<section>
+
+<div class="card">
+
+<h2>📚 Local Calculation History</h2>
+
+<div id="history">
+No history yet.
+</div>
+
+<button
+onclick="clearHistory()"
+class="danger">
+
+Clear History
+
+</button>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<footer>
+
+GreenChain Carbon Calculator<br><br>
+
+Carbon values shown by this prototype are
+estimates. They are not automatically
+verified carbon credits.
+
+</footer>
+
+
+
+<script>
+
+
+/*
+========================================
+CONFIGURATION
+========================================
+*/
+
+/*
+Example electricity emission factor.
+
+For production use:
+replace with the appropriate
+official/local methodology.
+*/
+
+const ELECTRICITY_FACTOR = 0.70;
+
+
+/*
+Approximate tree annual absorption
+used ONLY for demonstration.
+*/
+
+const TREE_FACTOR = 22;
+
+
+/*
+Simplified waste factor
+used ONLY for demonstration.
+*/
+
+const WASTE_FACTOR = 0.50;
+
+
+/*
+========================================
+UTILITY
+========================================
+*/
+
+function number(id){
+
+    const value =
+        Number(
+            document.getElementById(id).value
+        );
+
+    return isFinite(value) && value > 0
+        ? value
+        : 0;
+}
+
+
+function round(value){
+
+    return Number(
+        value.toFixed(4)
+    );
+
+}
+
+
+/*
+========================================
+NAVIGATION
+========================================
+*/
+
+function go(id){
+
+    document
+    .getElementById(id)
+    .scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/*
+========================================
+PHOTO PREVIEW
+========================================
+*/
+
+document
+.getElementById("photo")
+.addEventListener(
+"change",
+function(){
+
+    const file =
+        this.files[0];
+
+    if(!file){
+        return;
+    }
+
+    const reader =
+        new FileReader();
+
+    reader.onload =
+    function(event){
+
+        const image =
+            document
+            .getElementById("preview");
+
+        image.src =
+            event.target.result;
+
+        image.style.display =
+            "block";
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+/*
+========================================
+PHOTO CALCULATOR
+========================================
+*/
+
+function analyzePhoto(){
+
+    const type =
+        document
+        .getElementById("photoType")
+        .value;
+
+    const quantity =
+        number("photoQuantity");
+
+    let reduction = 0;
+
+    let title = "";
+
+    let explanation = "";
+
+
+    if(quantity <= 0){
+
+        alert(
+            "Quantity നൽകുക."
+        );
+
+        return;
+
+    }
+
+
+    if(type === "tree"){
+
+        reduction =
+            quantity *
+            TREE_FACTOR;
+
+        title =
+            "🌳 Tree Estimate";
+
+        explanation =
+            quantity+
+            " tree(s) × "+
+            TREE_FACTOR+
+            " kg/year";
+
+    }
+
+
+    else if(type === "solar"){
+
+        reduction =
+            quantity *
+            ELECTRICITY_FACTOR;
+
+        title =
+            "☀️ Solar Estimate";
+
+        explanation =
+            quantity+
+            " kWh × "+
+            ELECTRICITY_FACTOR+
+            " kg CO₂e";
+
+    }
+
+
+    else if(type === "waste"){
+
+        reduction =
+            quantity *
+            WASTE_FACTOR;
+
+        title =
+            "♻️ Waste Estimate";
+
+        explanation =
+            quantity+
+            " kg × "+
+            WASTE_FACTOR+
+            " kg CO₂e";
+
+    }
+
+
+    else if(type === "vehicle"){
+
+        reduction =
+            quantity *
+            0.192;
+
+        title =
+            "🚗 Vehicle Estimate";
+
+        explanation =
+            quantity+
+            " km × 0.192 kg CO₂e";
+
+    }
+
+
+    const credits =
+        reduction / 1000;
+
+
+    const box =
+        document
+        .getElementById(
+            "photoResult"
+        );
+
+
+    box.classList.remove(
+        "hidden"
+    );
+
+
+    box.innerHTML =
+
+        "<h3>"+title+"</h3>"+
+
+        "<p>"+
+        explanation+
+        "</p>"+
+
+        "<p>Estimated CO₂e:</p>"+
+
+        "<div class='big-result'>"+
+        round(reduction)+
+        " kg</div>"+
+
+        "<p>Estimated carbon credits:</p>"+
+
+        "<div class='big-result'>"+
+        round(credits)+
+        " tCO₂e</div>"+
+
+        "<p class='small'>"+
+        "This is an estimate only. "+
+        "Photo itself does not establish "+
+        "a verified carbon credit."+
+        "</p>";
+
+
+    /*
+    Save photo calculation
+    */
+
+    saveHistory({
+
+        type:"Photo",
+        category:type,
+        quantity:quantity,
+        reduction:round(reduction),
+        credits:round(credits),
+        date:new Date().toLocaleString()
+
+    });
+
+}
+
+
+/*
+========================================
+MAIN CALCULATOR
+========================================
+*/
+
+function calculateAll(){
+
+    /*
+    Electricity
+    */
+
+    const electricity =
+        number("electricity");
+
+    const electricityEmission =
+        electricity *
+        ELECTRICITY_FACTOR;
+
+
+    /*
+    Vehicle
+    */
+
+    const distance =
+        number("distance");
+
+    const vehicleFactor =
+        Number(
+            document
+            .getElementById(
+                "vehicleType"
+            ).value
+        );
+
+    const vehicleEmission =
+        distance *
+        vehicleFactor;
+
+
+    /*
+    Fuel
+    */
+
+    const fuel =
+        number("fuel");
+
+    const fuelFactor =
+        Number(
+            document
+            .getElementById(
+                "fuelType"
+            ).value
+        );
+
+    const fuelEmission =
+        fuel *
+        fuelFactor;
+
+
+    /*
+    Solar
+    */
+
+    const solar =
+        number("solar");
+
+    const solarReduction =
+        solar *
+        ELECTRICITY_FACTOR;
+
+
+    /*
+    Trees
+    */
+
+    const trees =
+        number("trees");
+
+    const treeReduction =
+        trees *
+        TREE_FACTOR;
+
+
+    /*
+    Waste
+    */
+
+    const waste =
+        number("waste");
+
+    const wasteReduction =
+        waste *
+        WASTE_FACTOR;
+
+
+    /*
+    TOTAL EMISSION
+    */
+
+    const totalEmission =
+        electricityEmission +
+        vehicleEmission +
+        fuelEmission;
+
+
+    /*
+    TOTAL REDUCTION
+    */
+
+    const totalReduction =
+        solarReduction +
+        treeReduction +
+        wasteReduction;
+
+
+    /*
+    NET
+    */
+
+    const net =
+        Math.max(
+            totalEmission -
+            totalReduction,
+            0
+        );
+
+
+    /*
+    CARBON CREDIT ESTIMATE
+
+    1 tCO2e = 1000 kgCO2e
+
+    This does NOT mean the user
+    automatically owns tradable credits.
+    */
+
+    const credits =
+        totalReduction /
+        1000;
+
+
+    /*
+    UPDATE INDIVIDUAL RESULTS
+    */
+
+    document
+    .getElementById(
+        "electricityResult"
+    )
+    .innerHTML =
+        round(
+            electricityEmission
+        )+
+        " kg CO₂e";
+
+
+    document
+    .getElementById(
+        "vehicleResult"
+    )
+    .innerHTML =
+        round(
+            vehicleEmission
+        )+
+        " kg CO₂e";
+
+
+    document
+    .getElementById(
+        "fuelResult"
+    )
+    .innerHTML =
+        round(
+            fuelEmission
+        )+
+        " kg CO₂e";
+
+
+    document
+    .getElementById(
+        "solarResult"
+    )
+    .innerHTML =
+        round(
+            solarReduction
+        )+
+        " kg CO₂e avoided";
+
+
+    document
+    .getElementById(
+        "treeResult"
+    )
+    .innerHTML =
+        round(
+            treeReduction
+        )+
+        " kg CO₂e/year";
+
+
+    document
+    .getElementById(
+        "wasteResult"
+    )
+    .innerHTML =
+        round(
+            wasteReduction
+        )+
+        " kg CO₂e avoided";
+
+
+    /*
+    DASHBOARD
+    */
+
+    document
+    .getElementById(
+        "dashEmission"
+    )
+    .innerText =
+        round(totalEmission);
+
+
+    document
+    .getElementById(
+        "dashReduction"
+    )
+    .innerText =
+        round(totalReduction);
+
+
+    document
+    .getElementById(
+        "dashNet"
+    )
+    .innerText =
+        round(net);
+
+
+    document
+    .getElementById(
+        "dashCredits"
+    )
+    .innerText =
+        round(credits);
+
+
+    /*
+    MAIN RESULT
+    */
+
+    document
+    .getElementById(
+        "mainResult"
+    )
+    .innerHTML =
+
+        "<h3>🌍 Carbon Result</h3>"+
+
+        "<p>Total emissions:</p>"+
+
+        "<div class='big-result'>"+
+        round(totalEmission)+
+        " kg CO₂e"+
+        "</div>"+
+
+        "<p>Total reductions:</p>"+
+
+        "<div class='big-result'>"+
+        round(totalReduction)+
+        " kg CO₂e"+
+        "</div>"+
+
+        "<p>Net footprint:</p>"+
+
+        "<div class='big-result'>"+
+        round(net)+
+        " kg CO₂e"+
+        "</div>"+
+
+        "<p>Estimated credits:</p>"+
+
+        "<div class='big-result'>"+
+        round(credits)+
+        " tCO₂e"+
+        "</div>"+
+
+        "<p class='small'>"+
+        "Estimate only — not a verified "+
+        "carbon credit."+
+        "</p>";
+
+
+    /*
+    SAVE
+    */
+
+    const data = {
+
+        electricity,
+        distance,
+        fuel,
+        solar,
+        trees,
+        waste,
+
+        totalEmission:
+            round(totalEmission),
+
+        totalReduction:
+            round(totalReduction),
+
+        net:
+            round(net),
+
+        credits:
+            round(credits),
+
+        date:
+            new Date().toISOString()
+
+    };
+
+
+    localStorage.setItem(
+        "carbonData",
+        JSON.stringify(data)
+    );
+
+
+    saveHistory({
+
+        type:"Calculator",
+
+        emission:
+            round(totalEmission),
+
+        reduction:
+            round(totalReduction),
+
+        credits:
+            round(credits),
+
+        date:
+            new Date().toLocaleString()
+
+    });
+
+
+    updateCertificate(
+        totalReduction,
+        credits
+    );
+
+}
+
+
+/*
+========================================
+WALLET
+========================================
+*/
+
+function saveWallet(){
+
+    const wallet =
+        document
+        .getElementById(
+            "walletAddress"
+        )
+        .value
+        .trim();
+
+
+    if(!wallet){
+
+        alert(
+            "Wallet address നൽകുക."
+        );
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "carbonWallet",
+        wallet
+    );
+
+
+    document
+    .getElementById(
+        "walletStatus"
+    )
+    .innerHTML =
+
+        "<span class='badge'>"+
+        "Wallet Saved"+
+        "</span><br><br>"+
+        wallet;
+
+
+    updateCertificate();
+
+}
+
+
+/*
+========================================
+CERTIFICATE
+========================================
+*/
+
+function generateCertificate(){
+
+    const saved =
+        localStorage.getItem(
+            "carbonData"
+        );
+
+
+    if(!saved){
+
+        alert(
+            "ആദ്യം carbon calculation നടത്തുക."
+        );
+
+        return;
+
+    }
+
+
+    const data =
+        JSON.parse(saved);
+
+
+    const certificateId =
+        "GCC-"+
+        Date.now();
+
+
+    localStorage.setItem(
+        "certificateId",
+        certificateId
+    );
+
+
+    updateCertificate(
+        data.totalReduction,
+        data.credits
+    );
+
+
+    document
+    .getElementById(
+        "certificateId"
+    )
+    .innerText =
+        certificateId;
+
+}
+
+
+function updateCertificate(
+    reduction,
+    credits
+){
+
+    if(reduction === undefined){
+
+        const saved =
+            localStorage.getItem(
+                "carbonData"
+            );
+
+        if(saved){
+
+            const data =
+                JSON.parse(saved);
+
+            reduction =
+                data.totalReduction;
+
+            credits =
+                data.credits;
+
+        }
+
+    }
+
+
+    reduction =
+        reduction || 0;
+
+    credits =
+        credits || 0;
+
+
+    document
+    .getElementById(
+        "certificateReduction"
+    )
+    .innerText =
+        round(reduction)+
+        " kg CO₂e";
+
+
+    document
+    .getElementById(
+        "certificateCredit"
+    )
+    .innerText =
+        round(credits)+
+        " tCO₂e";
+
+
+    const wallet =
+        localStorage.getItem(
+            "carbonWallet"
+        );
+
+
+    document
+    .getElementById(
+        "certificateWallet"
+    )
+    .innerText =
+        wallet ||
+        "Not connected";
+
+
+    const certificateId =
+        localStorage.getItem(
+            "certificateId"
+        );
+
+
+    document
+    .getElementById(
+        "certificateId"
+    )
+    .innerText =
+        certificateId ||
+        "Not generated";
+
+}
+
+
+/*
+========================================
+HISTORY
+========================================
+*/
+
+function saveHistory(item){
+
+    let history = [];
+
+
+    try{
+
+        history =
+            JSON.parse(
+                localStorage.getItem(
+                    "carbonHistory"
+                )
+            ) || [];
+
+    }catch(e){
+
+        history=[];
+
+    }
+
+
+    history.unshift(item);
+
+
+    /*
+    Keep latest 20
+    */
+
+    history =
+        history.slice(0,20);
+
+
+    localStorage.setItem(
+        "carbonHistory",
+        JSON.stringify(history)
+    );
+
+
+    renderHistory();
+
+}
+
+
+function renderHistory(){
+
+    let history=[];
+
+
+    try{
+
+        history =
+            JSON.parse(
+                localStorage.getItem(
+                    "carbonHistory"
+                )
+            ) || [];
+
+    }catch(e){
+
+        history=[];
+
+    }
+
+
+    const box =
+        document
+        .getElementById(
+            "history"
+        );
+
+
+    if(!history.length){
+
+        box.innerHTML =
+            "No history yet.";
+
+        return;
+
+    }
+
+
+    let html =
+        "<table>"+
+        "<tr>"+
+        "<th>Type</th>"+
+        "<th>CO₂ / Reduction</th>"+
+        "<th>Credits</th>"+
+        "</tr>";
+
+
+    history.forEach(
+    function(item){
+
+        const amount =
+            item.reduction ??
+            item.emission ??
+            0;
+
+
+        html +=
+
+            "<tr>"+
+
+            "<td>"+
+            (item.category ||
+             item.type)+
+            "</td>"+
+
+            "<td>"+
+            amount+
+            " kg</td>"+
+
+            "<td>"+
+            (item.credits || 0)+
+            " t</td>"+
+
+            "</tr>";
+
+    });
+
+
+    html +=
+        "</table>";
+
+
+    box.innerHTML =
+        html;
+
+}
+
+
+function clearHistory(){
+
+    if(
+        !confirm(
+            "History delete ചെയ്യണോ?"
+        )
+    ){
+
+        return;
+
+    }
+
+
+    localStorage.removeItem(
+        "carbonHistory"
+    );
+
+
+    renderHistory();
+
+}
+
+
+/*
+========================================
+LOAD DATA
+========================================
+*/
+
+window.addEventListener(
+"load",
+function(){
+
+    /*
+    Load calculator
+    */
+
+    const saved =
+        localStorage.getItem(
+            "carbonData"
+        );
+
+
+    if(saved){
+
+        try{
+
+            const data =
+                JSON.parse(saved);
+
+
+            document
+            .getElementById(
+                "electricity"
+            ).value =
+                data.electricity || 0;
+
+
+            document
+            .getElementById(
+                "distance"
+            ).value =
+                data.distance || 0;
+
+
+            document
+            .getElementById(
+                "fuel"
+            ).value =
+                data.fuel || 0;
+
+
+            document
+            .getElementById(
+                "solar"
+            ).value =
+                data.solar || 0;
+
+
+            document
+            .getElementById(
+                "trees"
+            ).value =
+                data.trees || 0;
+
+
+            document
+            .getElementById(
+                "waste"
+            ).value =
+                data.waste || 0;
+
+
+            calculateAll();
+
+        }
+        catch(e){
+
+            console.log(e);
+
+        }
+
+    }
+
+
+    /*
+    Load wallet
+    */
+
+    const wallet =
+        localStorage.getItem(
+            "carbonWallet"
+        );
+
+
+    if(wallet){
+
+        document
+        .getElementById(
+            "walletAddress"
+        ).value =
+            wallet;
+
+
+        document
+        .getElementById(
+            "walletStatus"
+        ).innerHTML =
+
+            "<span class='badge'>"+
+            "Wallet Saved"+
+            "</span><br><br>"+
+            wallet;
+
+    }
+
+
+    renderHistory();
+
+
+    updateCertificate();
+
+});
+
+
+</script>
+
+</body>
+</html>
